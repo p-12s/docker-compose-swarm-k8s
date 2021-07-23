@@ -23,7 +23,7 @@
 - Локальная разработка, когда используется связка сервисов
 -----------
 
-![orchestration](https://github.com/p-12s/docker-compose-swarm-k8s/blob/main/orchestration.jpg?raw=true)
+![image](https://github.com/p-12s/docker-compose-swarm-k8s/blob/main/orchestration.jpg)
 ## Docker-swarm (k8s для бедных)
 
 #### Где использовать в 202x
