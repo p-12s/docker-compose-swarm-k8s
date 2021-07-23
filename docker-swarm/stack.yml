@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  wordpress:
+    image: wordpress
+    ports:
+      - 80:80
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_NAME: wp
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: wp_pass
+
+  mysql:
+    image: mysql:5.7
+    # портов нет, т.к. сервис используется в рамках данного стека, а здесь обращение идет по их названиям
+    environment:
+      MYSQL_USER: wp
+      MYSQL_PASSWORD: wp_pass
+      MYSQL_DATABASE: wp
+      MYSQL_ROOT_PASSWORD: root
+
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - 8080:80
+    # названия env-переменных берем из описаний образов на dockerhub
+    environment:
+      PMA_HOST: mysql

@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  redmine:
+    image: redmine
+    ports:
+      - 3000:3000
+    environment:
+      REDMINE_DB_MYSQL: db
+      REDMINE_DB_USERNAME: redmine
+      REDMINE_DB_PASSWORD: password
+
+  db:
+    image: mysql:5.7
+    # портов нет, т.к. сервис используется в рамках данного стека, а здесь обращение идет по их названиям
+    environment:
+      MYSQL_USER: redmine
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: redmine
+      MYSQL_ROOT_PASSWORD: root
