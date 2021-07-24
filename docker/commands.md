@@ -30,3 +30,20 @@ docker login registry.gitlab.com
 docker build -t registry.gitlab.com/p-12s/test:ver .
 docker push registry.gitlab.com/p-12s/test:ver
 ```
+
+#### Работа с сетью
+Виды сетей:
+- bridge (по-умолчанию) - для коммуникации контейнеров в пределах одного хоста (не рекомендуется для использования в продакшене)
+- overlay - распределенная сеть среди нескольких хостов Docker
+- macvlan/ipvlan — контейнер подключается при помощи виртуального интерфейса, подключенного к физическому. При этом у каждого из них есть свой MAC-адрес
+- host — как видно из названия, в этом случае подключение происходит к сети хоста
+- none - сети нет
+
+```
+docker network ls
+docker network create -d bridge NAME 
+docker network connect
+docker network disconnect 
+docker network rm
+docker network prune                    # удалит сети без подключенных контейнеров
+```
