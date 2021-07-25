@@ -13,6 +13,7 @@ docker ps
 docker ps -a
 docker logs container_name          # вывод логов контейнеров
 docker inspect container_name       # информация по запущенному контейнеру
+docker history --human PID          # информация по слоям, сколько весит каждый
 ```
 
 #### Работа внутри контейнера
